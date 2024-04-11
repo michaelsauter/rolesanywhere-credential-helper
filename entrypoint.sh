@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -eu
 
 CMD=("aws_signing_helper" "serve" "--refresh-signer")
