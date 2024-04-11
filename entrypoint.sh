@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu
+set -e
 
 CMD=("aws_signing_helper" "serve" "--refresh-signer")
 
