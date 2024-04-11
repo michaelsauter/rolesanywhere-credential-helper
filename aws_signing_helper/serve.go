@@ -222,6 +222,17 @@ func AllIssuesHandlers(cred *RefreshableCred, roleName string, opts *Credentials
 			return
 		}
 
+		if opts.RefreshSigner {
+			s, sa, err := GetSigner(opts)
+			if err != nil {
+				w.WriteHeader(http.StatusInternalServerError)
+				return
+			}
+			signer = s
+			signatureAlgorithm = sa
+			defer s.Close()
+		}
+
 		var nextRefreshTime = cred.Expiration.Add(-RefreshTime)
 		if time.Until(nextRefreshTime) < RefreshTime {
 			credentialProcessOutput, _ := GenerateCredentials(opts, signer, signatureAlgorithm)

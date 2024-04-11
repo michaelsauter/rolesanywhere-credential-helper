@@ -32,6 +32,7 @@ type CredentialsOpts struct {
 	Version             string
 	LibPkcs11           string
 	ReusePin            bool
+	RefreshSigner       bool
 }
 
 // Function to create session and generate credentials

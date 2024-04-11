@@ -1,4 +1,4 @@
-VERSION=1.1.1
+VERSION=1.1.1-patch1
 
 release:
 	go build -buildmode=pie -ldflags "-X 'github.com/aws/rolesanywhere-credential-helper/cmd.Version=${VERSION}' -linkmode=external -w -s" -trimpath -o build/bin/aws_signing_helper main.go
