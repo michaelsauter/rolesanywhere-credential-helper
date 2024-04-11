@@ -1,4 +1,5 @@
-FROM golang:1.22 AS builder
+ARG builder_image=golang:1.22
+FROM ${builder_image} AS builder
 COPY . /app
 RUN cd /app && make release
 
